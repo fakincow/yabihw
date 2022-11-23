@@ -37,7 +37,6 @@ getAll():Observable<IGuest[]>{
 }
 
 invite(guest: IGuest): Observable<IGuest> {
-  console.log('fetch url');
   const body=JSON.stringify(guest);
  return this.http.post<IGuest>('http://tapi.yabi.cloud/api/create/', body)
    
@@ -45,7 +44,7 @@ invite(guest: IGuest): Observable<IGuest> {
 
 delete(id:any):Observable<IGuest[]>{
   console.log('delete')
-  return this.http.get<IGuest[]>(`http://tapi.yabi.cloud/api/delete/?id=${id}`,{
+  return this.http.post<IGuest[]>('http://tapi.yabi.cloud/api/delete/',JSON.stringify({id:id}),{
   }).pipe(
     tap(res => this.guests = res),
     catchError(this.errorHandler.bind(this))

@@ -14,11 +14,13 @@ export class GuestCardComponent implements OnInit {
   }
   
   onDelete(){
-    console.log('delete');
-    this.inviteService.delete(this.guest.id);
+    this.inviteService.delete(this.guest.id).subscribe(() => {
+      console.log('delete id', this.guest.id);
+      }
+    )
   }
   onEdit(){
-    console.log('delete');
+    console.log('on edit');
   }
   ngOnInit(): void {
   }
