@@ -1,0 +1,33 @@
+<div class="flex justify-left items-stretch p-5">
+    <div class="block p-6 rounded-lg shadow-lg bg-white " style="min-width: 340px;width: 340px;height: 300px;">
+        <div class="flex justify-left">
+            <img class="object-scale-down" src="../../../assets/Ellipse.png">
+            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2 font-bold ml-5"> {{guest.name}}</h5>
+        </div>
+        <p></p>
+        <div class="grid grid-cols-2 gap-2 flex justify-center pt-5">
+            <div class="grid">
+                <div class="flex justify-start ">
+                    <img class="object-scale-down" src="../../../assets/call.png">
+                    <h1 class="text-gray-900 text-sm leading-tight text-3xl font-bold pl-4"> {{guest.phone}}</h1>
+                </div>
+                <div class="flex justify-start ">
+                    <h1 class="text-gray-900 text-sm leading-tight pt-5">Phone Number</h1>
+                </div>
+                <button class="py-2 px-4 bg-[#9578D3] text-white rounded-md mt-10 " (click)="onEdit()">Edit Guest
+                </button>
+            </div>
+            <div class="grid">
+                <div class="flex justify-start">
+                    <img class="object-scale-down" src="../../../assets/alternate_email.png">
+                    <h1 class="text-gray-900 text-sm leading-tight font-bold"> {{guest.email}}</h1>
+                </div>
+                <div class="flex justify-start ">
+                    <h1 class="text-gray-900 text-sm leading-tight pt-5 pl-2">Email Adress</h1>
+                </div>
+                <button class="py-2 px-4 bg-red-600 text-white rounded-md mt-10" (click)="onDelete()">Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

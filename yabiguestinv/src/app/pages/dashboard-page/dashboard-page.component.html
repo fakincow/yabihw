@@ -1,0 +1,40 @@
+<div class="flex  items-start">
+    <div class="w-full">
+        <div class="grid grid-rows h-screen  bg-[#F5F5F5] flex items-start" style="align-content: start;">
+            <div class='bg-white' style="height: 60px;">
+                <h1 class="text-3xl font-bold p-5">Dashboard</h1>
+                <div  *ngIf="!showInvitePanel" style='
+            position: absolute;
+            top: 28px;
+            right: 50px;' class="flex space-x-2">
+                    <button style="
+                background-color: #9578D3;
+                margin-top: -15px;
+                " 
+                class="px-6 py-2.5 rounded-md bg-red-500 text-indigo-50 font-semibold cursor-pointer ml-5"
+                        (click)="openInvPanel()">+ Invite A Guest
+                    </button>
+                </div>
+            </div>
+            <div class='h-full bg-[url("/assets/Frame.png")] bg-no-repeat' style="min-width: 1200px">
+                <p *ngIf="loading" class="text-center text-lg">Loading ....</p>
+                <div *ngIf="inviteService.guests" class="grid grid-cols-4">
+                    <app-guest-card *ngFor="let guest of inviteService.guests; let i = index"
+                    [guest]="guest"></app-guest-card>
+                </div>
+                <div  *ngIf="!inviteService.guests" class="text-center font-bold">
+                    <h1 class="text-xl font-bold p-5">No Guests Were Invited</h1>
+                    <h1 class="text-sm text-[#666666] p-5">Please Invite New Guests To Start Working</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showInvitePanel" style="width: 370px;" class="p-5 block w-full text-sm text-slate-500 ">
+        <button style='justify-content: center;
+        position: absolute;
+        top: 28px;
+        right: 50px;'class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"  (click)="closeInvPanel()" >Cancel
+        </button>
+        <app-invite-form></app-invite-form>
+    </div>
+</div>
