@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
     console.log('make request on start');
     this.inviteService.getAll().subscribe(res => {
     this.guests = this.inviteService.guests;
+   
     });
   }
-
 }
