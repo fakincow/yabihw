@@ -18,8 +18,8 @@
             </div>
             <div class='h-full bg-[url("/assets/Frame.png")] bg-no-repeat' style="min-width: 1200px">
                 <p *ngIf="loading" class="text-center text-lg">Loading ....</p>
-                <div *ngIf="inviteService.guests" class="grid grid-cols-4">
-                    <app-guest-card *ngFor="let guest of inviteService.guests; let i = index"
+                <div *ngIf="guests" class="grid grid-cols-4">
+                 <app-guest-card *ngFor="let guest of guests; index as i"
                     [guest]="guest"></app-guest-card>
                 </div>
                 <div  *ngIf="!inviteService.guests" class="text-center font-bold">

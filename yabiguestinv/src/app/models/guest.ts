@@ -3,5 +3,6 @@ export interface IGuest {
     name: string,
     phone: string,
     email: string,
+    created?: string
   }
   

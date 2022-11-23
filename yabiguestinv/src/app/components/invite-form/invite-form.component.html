@@ -1,16 +1,16 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="form">
   <div class="grid pb-5">
     <h1 class="text-m  font-bold">Invite Guest</h1>
   </div>
   <label>Guest Name</label>
   <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Guest Name" formControlName="name" appFocus>
   <label>Phone Number</label>
-  <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Phone Number" formControlName="phone" appFocus>
+  <input type="tel" class="border w-full py-2 px-4 mb-2" placeholder="Phone Number" formControlName="phone" appFocus>
   <label>Email Address</label>
-  <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Email Address" formControlName="email" appFocus>
+  <input type="email" class="border w-full py-2 px-4 mb-2 max" placeholder="Email Address" formControlName="email" appFocus>
   <div class="grid grid-cols-3 gap-4 content-start pt-5">
 
-    <button class="py-2 px-4 bg-blue-600 text-white rounded-md" type="submit">Create
+    <button class="py-2 px-4 bg-blue-600 text-white rounded-md" type="submit" (click)="create()">Create
     </button>
   </div>
 </form>

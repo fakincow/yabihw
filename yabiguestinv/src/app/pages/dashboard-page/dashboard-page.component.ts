@@ -1,6 +1,7 @@
 import {Component, OnInit } from '@angular/core';
 import { InviteService } from 'src/app/services/invite.service';
 import { IGuest } from '../../models/guest';
+import { Observable, tap, of } from 'rxjs';
 @Component({
   selector: 'dashboard-about-page',
   templateUrl: './dashboard-page.component.html',
@@ -10,7 +11,7 @@ import { IGuest } from '../../models/guest';
 export class DashboardComponent implements OnInit {
 
   public showInvitePanel: boolean = false;
-  public guests: IGuest[] = [];
+  guests: IGuest[] = [];
   loading = false;
   constructor(public inviteService: InviteService) {
   }
@@ -24,11 +25,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('make request on start');
-    this.inviteService.getAll().subscribe(() => {
-      //  this.guests = guests;
-      console.log('get all response:', this.guests);
-      this.loading = false;
-    })
+    this.inviteService.getAll().subscribe(res => {
+    this.guests = this.inviteService.guests;
+    });
   }
 
 }

@@ -44,12 +44,15 @@ export class InviteFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit() {
+  create() {
     this.inviteService.invite({
       name: this.form.value.name as string,
       phone:this.form.value.phone as string,
       email: this.form.value.email as string,
-    })
+    }).subscribe(() => {
+      console.log('this form');
+      }
+    )
   }
 
 }
